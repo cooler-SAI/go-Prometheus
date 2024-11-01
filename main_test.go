@@ -1,9 +1,11 @@
 package main
 
 import (
+	"github.com/rs/zerolog"
 	"io"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"testing"
 
 	"github.com/prometheus/client_golang/prometheus"
@@ -14,6 +16,9 @@ import (
 )
 
 func TestMainPageHandler(t *testing.T) {
+
+	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stdout})
+
 	// Registering the metric for testing
 	log.Info().Msg("Registering the httpRequests metric for testing.")
 	prometheus.MustRegister(httpRequests)
