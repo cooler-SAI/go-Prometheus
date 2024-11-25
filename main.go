@@ -20,7 +20,7 @@ func main() {
 
 	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stdout})
 
-	log.Info().Msg("go-Prometheus app starting...")
+	log.Info().Msg("go-Prometheus Client app starting...")
 
 	prometheus.MustRegister(httpRequests)
 
