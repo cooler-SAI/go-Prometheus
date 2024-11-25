@@ -35,10 +35,11 @@ func main() {
 
 	http.Handle("/metrics", promhttp.Handler())
 
-	log.Info().Msg(" Started Server on port 8080!")
+	log.Info().Msg(" Started Client on port 8080!")
 
 	if err := http.ListenAndServe(":8080", nil); err != nil {
-		log.Fatal().Err(err).Msg("Error start server!")
+		log.Fatal().Err(err).Msg("Error" +
+			" start client!")
 	}
 
 }
