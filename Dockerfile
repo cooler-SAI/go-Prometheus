@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-LABEL authors="coole"
+LABEL authors="coolerSAI"
 
 RUN apt-get update && apt-get install -y ca-certificates golang
 
