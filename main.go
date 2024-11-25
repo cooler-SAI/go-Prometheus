@@ -27,7 +27,7 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		httpRequests.Inc()
 		log.Info().Msg("Main Page request added!")
-		_, err := w.Write([]byte("Hello, Prometheus with Zerolog!"))
+		_, err := w.Write([]byte("Hello, Prometheus Client run successful with Zerolog!"))
 		if err != nil {
 			return
 		}
