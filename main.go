@@ -26,10 +26,17 @@ func main() {
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		httpRequests.Inc()
-		log.Info().Msg("Main Page request added!")
+
+		clientIP := r.RemoteAddr
+		log.Info().
+			Str("method", r.Method).
+			Str("path", "/").
+			Str("client_ip", clientIP).
+			Msg("Main Page request received")
+
 		_, err := w.Write([]byte("Hello, Prometheus Client run successful with Zerolog!"))
 		if err != nil {
-			return
+			log.Error().Err(err).Msg("Failed to write response")
 		}
 	})
 
